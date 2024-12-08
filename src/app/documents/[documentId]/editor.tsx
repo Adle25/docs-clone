@@ -78,7 +78,6 @@ export const Editor = () => {
             Color,
             Highlight.configure({ multicolor: true }),
         ],
-        content: "",
     })
 
     return (

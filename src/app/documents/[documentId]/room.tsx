@@ -6,11 +6,17 @@ import {
     RoomProvider,
     ClientSideSuspense,
 } from "@liveblocks/react/suspense";
+import { useParams } from "next/navigation";
 
 export function Room({ children }: { children: ReactNode }) {
+    const params = useParams();
+
     return (
-        <LiveblocksProvider publicApiKey={"pk_prod__fcitwgxWFHztc2g4lbjvSiKDdo_soIdJVCUTLn9__6hwvz46yPC0Oski0RBM6b8"}>
-            <RoomProvider id="my-room">
+        <LiveblocksProvider
+            authEndpoint="/api/liveblocks-auth"
+            throttle={16}
+        >
+            <RoomProvider id={params.documentId as string}>
                 <ClientSideSuspense fallback={<div>Loading…</div>}>
                     {children}
                 </ClientSideSuspense>

@@ -30,7 +30,7 @@ export const Editor = () => {
     const leftMargin = useStorage((root) => root.leftMargin);
     const rightMargin = useStorage((root) => root.rightMargin);
 
-    const liveblocks = useLiveblocksExtension();
+    const liveblocks = useLiveblocksExtension({ offlineSupport_experimental: true });
     const { setEditor } = useEditorStore();
 
     const editor = useEditor({
